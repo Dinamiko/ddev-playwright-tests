@@ -32,3 +32,9 @@ jobs:
 
             -   name: Start DDEV
                 run: ddev start
+
+            -   name: Install Playwright
+                run: npx playwright install --with-deps
+
+            -   name: Run Playwright tests
+                run: npx playwright test

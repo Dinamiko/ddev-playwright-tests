@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "DDEV configuration template for developing individual WordPress plugins",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dinamiko/ddev-playwright-tests.git"
@@ -15,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/Dinamiko/ddev-playwright-tests/issues"
   },
-  "homepage": "https://github.com/Dinamiko/ddev-playwright-tests#readme"
+  "homepage": "https://github.com/Dinamiko/ddev-playwright-tests#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.30.0"
+  }
 }
