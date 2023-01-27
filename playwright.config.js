@@ -9,6 +9,7 @@ const config = {
   use: {
     baseURL: process.env.BASEURL,
   },
+  outputDir: './tests/Reports/',
 };
 
 module.exports = config;
