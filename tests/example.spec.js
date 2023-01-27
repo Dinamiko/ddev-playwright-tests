@@ -7,6 +7,5 @@ test('has title', async ({ page }) => {
 
 test('has ngrok url', async ({page, baseURL}) => {
   await page.goto('/');
-  console.log(baseURL)
   await expect(page).toHaveURL(baseURL);
 });
