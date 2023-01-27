@@ -1,0 +1,140 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a85fae6dc74e752b22347579b25923e9",
+    "packages": [
+        {
+            "name": "inpsyde/modularity",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inpsyde/modularity.git",
+                "reference": "3bbff6197aabbc4df25b5f386f521bedc71aff2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inpsyde/modularity/zipball/3bbff6197aabbc4df25b5f386f521bedc71aff2e",
+                "reference": "3bbff6197aabbc4df25b5f386f521bedc71aff2e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.2",
+                "psr/container": "~1.0"
+            },
+            "require-dev": {
+                "brain/monkey": "^2.6.1",
+                "inpsyde/php-coding-standards": "^1",
+                "johnpbloch/wordpress-core": ">=5.8",
+                "mikey179/vfsstream": "^v1.6.10",
+                "php-stubs/wordpress-stubs": ">=5.8@stable",
+                "phpunit/phpunit": "^8.5.21",
+                "vimeo/psalm": "^4.13.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Inpsyde\\Modularity\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Inpsyde GmbH",
+                    "email": "hello@inpsyde.com",
+                    "homepage": "https://inpsyde.com/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Christian Leucht",
+                    "email": "c.leucht@inpsyde.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pablo Kauffman",
+                    "email": "p.kauffman@inpsyde.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Giuseppe Mazzapica",
+                    "email": "g.mazzapica@inpsyde.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Modular PSR-11 implementation for WordPress plugins, themes or libraries.",
+            "support": {
+                "issues": "https://github.com/inpsyde/modularity/issues",
+                "source": "https://github.com/inpsyde/modularity/tree/1.5.1"
+            },
+            "time": "2022-03-09T13:59:27+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
+                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/1.1.2"
+            },
+            "time": "2021-11-05T16:50:12+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

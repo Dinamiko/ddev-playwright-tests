@@ -1,4 +1,4 @@
-name: ddev-wordpress-plugin-example
+name: ddev-playwright-tests
 type: php
 docroot: .ddev/wordpress
 php_version: "7.4"
@@ -18,15 +18,13 @@ hooks:
     pre-start:
         - exec-host: "mkdir -p .ddev/wordpress/wp-content/plugins/${DDEV_PROJECT}"
 web_environment:
-  - WP_VERSION=5.8.3
+  - WP_VERSION=6.1.1
   - WP_LOCALE=de_DE
-  - WP_TITLE=DDEV WordPress Test
-  #- WP_MULTISITE=true
-  #- WP_MULTISITE_SLUGS=de,es
+  - WP_TITLE=DDEV Playwright Tests
   - ADMIN_USER=admin
   - ADMIN_PASS=admin
   - ADMIN_EMAIL=admin@example.com
-  - WC_VERSION=6.1.0
+  - WC_VERSION=7.1.0
 
 # Key features of ddev's config.yaml:
 
