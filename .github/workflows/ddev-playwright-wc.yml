@@ -49,7 +49,7 @@ jobs:
                 run: bin/ddev-share --ci
 
             -   name: Run Playwright tests
-                run: npx playwright test
+                run: npx playwright test example-wc.spec.js
                 env:
                     BASEURL: ${{ env.BASEURL }}
 
