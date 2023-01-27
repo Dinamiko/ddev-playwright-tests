@@ -1,11 +1,11 @@
-name: Testing
+name: DDEV Playwright WooCommerce
 
 on:
     push:
     workflow_dispatch:
 
 jobs:
-    build:
+    test:
 
         runs-on: ubuntu-latest
         strategy:
@@ -38,6 +38,15 @@ jobs:
 
             -   name: Install Playwright
                 run: npx playwright install --with-deps
+
+            -   name: Install Ngrok
+                run: curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
+
+            -   name: Add ngrok Authtoken
+                run: ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
+
+            -   name: Run Ngrok
+                run: bin/ddev-share --ci
 
             -   name: Run Playwright tests
                 run: npx playwright test

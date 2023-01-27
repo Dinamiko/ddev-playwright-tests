@@ -1,0 +1,43 @@
+name: DDEV Playwright
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    test:
+
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php-version:
+                    - '7.4'
+        steps:
+            -   uses: satackey/action-docker-layer-caching@v0.0.11
+                # Ignore the failure of a step and avoid terminating the job.
+                continue-on-error: true
+
+            -   uses: jonaseberle/github-action-setup-ddev@v1
+                with:
+                    autostart: false
+            # Save the current branch name in an environment variable, to be used for conditional logic below
+            -   name: Extract branch name into env
+                id: git
+                run: echo "::set-output name=branch::$(echo ${GITHUB_REF##*/})"
+
+            -   uses: actions/checkout@v1
+
+            -   name: Configure DDEV
+                run: ddev config --php-version ${{ matrix.php-version }}
+
+            -   name: Start DDEV
+                run: ddev start
+
+            -   name: Orchestrate DDEV
+                run: ddev orchestrate
+
+            -   name: Install Playwright
+                run: npx playwright install --with-deps
+
+            -   name: Run Playwright tests
+                run: npx playwright test
