@@ -52,10 +52,3 @@ jobs:
                 run: npx playwright test example-wc.spec.js
                 env:
                     BASEURL: ${{ env.BASEURL }}
-
-            -   uses: actions/upload-artifact@v2
-                if: always()
-                with:
-                    name: e2e-results
-                    path: tests/Reports/
-                    retention-days: 30
