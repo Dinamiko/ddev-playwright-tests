@@ -16,5 +16,8 @@
   "homepage": "https://github.com/Dinamiko/ddev-playwright-tests#readme",
   "devDependencies": {
     "@playwright/test": "^1.30.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }
