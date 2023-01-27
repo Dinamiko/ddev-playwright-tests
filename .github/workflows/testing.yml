@@ -1,0 +1,58 @@
+name: Testing
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    build:
+
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php-version:
+                    - '7.2'
+                    - '7.3'
+                    - '7.4'
+#                    - '8.0'
+#                    - '8.1'
+        steps:
+
+            -   uses: satackey/action-docker-layer-caching@v0.0.11
+                # Ignore the failure of a step and avoid terminating the job.
+                continue-on-error: true
+
+            -   uses: jonaseberle/github-action-setup-ddev@v1
+                with:
+                    autostart: false
+            # Save the current branch name in an environment variable, to be used for conditional logic below
+            -   name: Extract branch name into env
+                id: git
+                run: echo "::set-output name=branch::$(echo ${GITHUB_REF##*/})"
+
+            -   uses: actions/checkout@v1
+
+            -   name: Configure DDEV
+                run: ddev config --php-version ${{ matrix.php-version }}
+
+            -   name: Start DDEV
+                run: ddev start
+
+            -   name: Packagist.com Auth
+                run: ddev composer config --global --auth http-basic.repo.packagist.com token ${{ secrets.PACKAGIST_TOKEN }}
+
+            -   name: Validate composer.json
+                run: ddev composer validate
+
+            -   name: Install dependencies
+                run: ddev composer install
+
+            -   name: Run PHPUnit
+                run: ddev composer test
+
+            -   uses: 8398a7/action-slack@v2
+                with:
+                    status: ${{ job.status }}
+                env:
+                    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+                if: failure() && ( steps.git.outputs.branch == 'master' || steps.git.outputs.branch == 'development' )
