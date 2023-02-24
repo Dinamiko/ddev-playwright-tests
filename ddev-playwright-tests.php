@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Dinamiko\Modularity;
+namespace Dinamiko\Playwright;
 
 use Inpsyde\Modularity\Package;
 use Inpsyde\Modularity\Properties\PluginProperties;
