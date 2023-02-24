@@ -9,7 +9,7 @@ Reusable workflow for running Playwright tests on DDEV environments.
 3. `$ ddev orchestrate` to install WP/WC.
 4. Open [https://ddev-playwright-tests.ddev.site](https://ddev-playwright-tests.ddev.site  )
 
-Use `$ ddev orchestrate -f` for reinstalattion (will destroy all site data).
+Use `$ ddev orchestrate -f` for reinstalation (will destroy all site data).
 You may also need `$ ddev restart` to apply the config changes.
 
 ## Webhooks Setup
@@ -23,6 +23,7 @@ $ .ddev/bin/share
 
 ## Local Environment Variables
 Allows using local variables inside the tests.
+
 0. Duplicate `.env.sample` and rename it as `.env`, set values and add new variables if needed.  
 
 ## Run Tests
