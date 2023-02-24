@@ -7,7 +7,7 @@ require('dotenv').config();
 const config = {
   timeout: 30000,
   use: {
-    baseURL: process.env.BASEURL,
+    baseURL: process.env.BASE_URL,
   },
 };
 

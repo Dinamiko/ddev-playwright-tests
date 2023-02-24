@@ -1,5 +1,5 @@
 # DDEV Playwright Tests
-Reusable GH workflows for running Playwright tests on DDEV environments.
+Reusable workflow for running Playwright tests on DDEV environments.
 
 ## DDEV Setup
 
@@ -12,7 +12,20 @@ Reusable GH workflows for running Playwright tests on DDEV environments.
 Use `$ ddev orchestrate -f` for reinstalattion (will destroy all site data).
 You may also need `$ ddev restart` to apply the config changes.
 
-## Run tests
+## Webhooks Setup
+For testing webhooks locally, follow these steps to set up ngrok:
+
+0. Install [ngrok](https://ngrok.com/).
+1. Run our wrapper Bash script which will start `ddev share` and replace the URLs in the WP database:
+```
+$ .ddev/bin/share
+```
+
+## Local Environment Variables
+Allows using local variables inside the tests.
+0. Duplicate `.env.sample` and rename it as `.env`, set values and add new variables if needed.  
+
+## Run Tests
 ```
 $ npx playwright test
 $ npx playwright test example.spec.js --headed
